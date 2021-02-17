@@ -14,6 +14,7 @@ func main() {
 
 	fmt.Scan(&M)
 	for v := 0; v < M; v++ {
+		fmt.Println(v)
 		fmt.Scan(&N, &P)
 		words = make([]string, N)
 		for i := 0; i < 10; i++ {
@@ -33,12 +34,12 @@ func main() {
 			}
 			words[i] = "(" + words[i] + ")"
 		}
+		reg := regexp.MustCompile(strings.Join(words, "|"))
 		for i := 0; i < P; i++ {
 			var hum string
 			var count int
 			fmt.Scan(&count)
 			fmt.Scanln(&hum)
-			reg := regexp.MustCompile(strings.Join(words, "|"))
 			fmt.Println(reg.FindIndex([]byte(hum)))
 		}
 

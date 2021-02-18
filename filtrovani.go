@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"regexp"
 )
 
@@ -93,8 +92,8 @@ func main() {
 			}
 			words.add(string(tmpB))
 		}
+		regS = ""
 		words.parse(&regS)
-		fmt.Fprintln(os.Stderr, regS)
 		reg := regexp.MustCompile(regS)
 		for i := 0; i < P; i++ {
 			var hum string
